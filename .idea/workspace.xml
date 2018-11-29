@@ -2,10 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54dd3a37-871d-434d-8d99-537532399ee0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Opponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/genius_9_1_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/genius_9_1_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chef.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Chef.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boapartyrepo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boarepository.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domainrepository.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/boaexample/AC_Next.java" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/boaexample/AC_Next.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/boaexample/AC_Uncertain.java" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/boaexample/AC_Uncertain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/boaexample/BestBid.java" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/boaexample/BestBid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/boaexample/HardHeadedFrequencyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/boaexample/HardHeadedFrequencyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/boaexample/TimeDependent_Offering.java" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/boaexample/TimeDependent_Offering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/multilateraltournament.xml" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/multilateraltournament.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/multipartyexample/Groupn.java" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/multipartyexample/Groupn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/storageexample/GroupX.java" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/storageexample/GroupX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/uncertaintyexample/UncertaintyAgentExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/uncertaintyexample/UncertaintyAgentExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genius-9.1.2/userguide.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/genius-9.1.5/userguide.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipartyprotocolrepository.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/partyrepository.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/protocolrepository.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Opponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Opponent.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,22 +36,23 @@
     <session id="405026589">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="3" />
+          <entry key="java" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="3" />
+          <entry key="JAVA" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -50,11 +69,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Chef.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="8" selection-end-column="43" />
+            <state relative-caret-position="360">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,17 +81,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/genius-9.1.5/boaexample/AC_Next.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Opponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
-              <folding>
-                <element signature="e#932#933#0" expanded="true" />
-                <element signature="e#960#961#0" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
-                <element signature="e#1035#1036#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -107,6 +125,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -117,23 +137,22 @@
             <path>
               <item name="Chef" type="b2602c69:ProjectViewProjectNode" />
               <item name="Chef" type="462c0819:PsiDirectoryNode" />
-              <item name="genius-9.1.2" type="462c0819:PsiDirectoryNode" />
+              <item name="genius-9.1.5" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chef" type="b2602c69:ProjectViewProjectNode" />
               <item name="Chef" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="genius-9.1.5" type="462c0819:PsiDirectoryNode" />
+              <item name="boaexample" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543402560324" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543505965882" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -183,7 +202,7 @@
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26171243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2657512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -218,25 +237,22 @@
     <entry file="file://$PROJECT_DIR$/genius-9.1.2/boaexample/AC_Next.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Chef.java">
+    <entry file="file://$PROJECT_DIR$/src/Opponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="8" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="510">
+          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Opponent.java">
+    <entry file="file://$PROJECT_DIR$/genius-9.1.5/boaexample/AC_Next.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Chef.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -318,7 +334,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>genius-9.1.2</last-edited>
+          <last-edited>genius-9.1.5</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
