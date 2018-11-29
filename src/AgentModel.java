@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
-public class AgentModel {
+public class AgentModel extends Opponent {
+    public AgentModel(String id) {
+        super(id);
+    }
 }
