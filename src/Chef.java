@@ -14,7 +14,7 @@ import genius.core.parties.NegotiationInfo;
  * if the utility of the bid is higher than Example Agent's last bid.
  */
 public class Chef extends AbstractNegotiationParty {
-    private final String description = "Example Agent";
+    private final String description = "Chef Agent";
 
     private Bid lastReceivedOffer; // offer on the table
     private Bid myLastOffer;
@@ -95,4 +95,5 @@ public class Chef extends AbstractNegotiationParty {
         }
         return null;
     }
+
 }
