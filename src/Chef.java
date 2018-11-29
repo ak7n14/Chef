@@ -5,6 +5,8 @@ import genius.core.Bid;
 import genius.core.actions.Accept;
 import genius.core.actions.Action;
 import genius.core.actions.Offer;
+import genius.core.issue.Issue;
+import genius.core.issue.Value;
 import genius.core.parties.AbstractNegotiationParty;
 import genius.core.parties.NegotiationInfo;
 
@@ -41,25 +43,21 @@ public class Chef extends AbstractNegotiationParty {
         // The time is normalized, so agents need not be
         // concerned with the actual internal clock.
 
+        double concessionThreshold = (this.utilitySpace.getUtility(this.getMaxUtilityBid()) +
+                this.utilitySpace.getUtility(this.getMinUtilityBid())) / 2;
 
-        // First half of the negotiation offering the max utility (the best agreement possible) for Example Agent
-        if (time < 0.5) {
-            return new Offer(this.getPartyId(), this.getMaxUtilityBid());
+        double maxUtility = this.utilitySpace.getUtility(this.getMaxUtilityBid());
+
+        double targetUtility = maxUtility - (maxUtility - concessionThreshold) * time;
+
+        if(lastReceivedOffer != null && myLastOffer != null && this.utilitySpace.getUtility(lastReceivedOffer) >= targetUtility) {
+
+            return new Accept(this.getPartyId(), lastReceivedOffer);
         } else {
-
-            // Accepts the bid on the table in this phase,
-            // if the utility of the bid is higher than Example Agent's last bid.
-            if (lastReceivedOffer != null
-                    && myLastOffer != null
-                    && this.utilitySpace.getUtility(lastReceivedOffer) > this.utilitySpace.getUtility(myLastOffer)) {
-
-                return new Accept(this.getPartyId(), lastReceivedOffer);
-            } else {
-                // Offering a random bid
-                myLastOffer = generateRandomBid();
-                return new Offer(this.getPartyId(), myLastOffer);
-            }
+            myLastOffer = generateBitWithMinUtility(targetUtility);
+            return new Offer(this.getPartyId(), myLastOffer);
         }
+
     }
 
     /**
@@ -95,6 +93,31 @@ public class Chef extends AbstractNegotiationParty {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private Bid getMinUtilityBid() {
+        try {
+            return this.utilitySpace.getMinUtilityBid();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Bid generateBitWithMinUtility(double bidUtility) {
+        Bid bid;
+        double utility;
+
+        do {
+            bid = generateRandomBid();
+            try {
+                utility = utilitySpace.getUtility(bid);
+            } catch (Exception e) {
+                utility = 0.0;
+            }
+        }
+        while(utility < bidUtility);
+        return bid;
     }
 
 }
