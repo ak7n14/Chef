@@ -21,7 +21,6 @@ public class Chef extends AbstractNegotiationParty {
     private Bid lastReceivedOffer; // offer on the table
     private Bid myLastOffer;
 
-
     @Override
     public void init(NegotiationInfo info) {
         super.init(info);

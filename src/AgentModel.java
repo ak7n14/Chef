@@ -1,5 +1,7 @@
+import genius.core.Domain;
+
 public class AgentModel extends Opponent {
-    public AgentModel(String id) {
-        super(id);
+    public AgentModel(String id, Domain domain) {
+        super(id,domain);
     }
 }
