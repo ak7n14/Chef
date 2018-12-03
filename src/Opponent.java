@@ -7,6 +7,7 @@ import genius.core.actions.Accept;
 import genius.core.actions.Action;
 import genius.core.actions.Offer;
 import genius.core.issue.Issue;
+import genius.core.issue.IssueDiscrete;
 import genius.core.issue.Value;
 import genius.core.parties.AbstractNegotiationParty;
 import genius.core.parties.NegotiationInfo;
@@ -58,10 +59,22 @@ public class Opponent {
         double utility = 0;
 
         for(Issue i : bid.getIssues()) {
-            double weight = (estimatedWeights.containsKey(i) ? estimatedWeights.get(i) : 0);
 
-            double value = estimatedValue.get(i).containsKey(bid.getValue(i.getNumber()))
-                    ? estimatedValue.get(i).get(bid.getValue(i.getNumber())) : 0;
+            double weight = 0;
+            double value = 0;
+            double k;
+
+            if(estimatedWeights.containsKey(i)){
+                k = ((IssueDiscrete) i).getNumberOfValues();
+                weight = estimatedWeights.get(i);
+                if(estimatedValue.get(i).containsKey(bid.getValue(i.getNumber()))) {
+                    value = estimatedValue.get(i).get(bid.getValue(i.getNumber()));
+                } else {
+                    value = 1 / k;
+                }
+            }
+
+
 
             utility += weight * value;
         }
@@ -75,8 +88,10 @@ public class Opponent {
             HashMap<Value, Integer> sortedValues = sortValues(frequencyTable.get(i));
             HashMap<Value, Double> tempValueMap = new HashMap<>();
             int count = 0;
+            double k = ((IssueDiscrete) i).getNumberOfValues();
             for(Value v : sortedValues.keySet()) {
-                tempValueMap.put(v, (sortedValues.size() - count) / (double) sortedValues.size());
+                tempValueMap.put(v, (sortedValues.size() - count) / k);
+                count++;
             }
             estimatedValue.put(i, tempValueMap);
         }
@@ -110,6 +125,23 @@ public class Opponent {
     public void updateModel() {
         updateEstimatedValue();
         updateEstimatedWeights();
+    }
+
+    public Bid getBestAcceptableBid(Bid[] bids) {
+        //REPLACE
+        double threshold = 0.5;
+
+        Bid best = null;
+        double bestUtility = Double.MAX_VALUE;
+        for(Bid bid : bids) {
+            double currentUtil = this.getEstimatedUtility(bid);
+            if(currentUtil > threshold && currentUtil < bestUtility) {
+                best = bid;
+                bestUtility = currentUtil;
+            }
+        }
+
+        return best;
     }
 
     private static HashMap<Value, Integer> sortValues(HashMap<Value, Integer> map) {

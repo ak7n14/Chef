@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.List;
 
 import genius.core.AgentID;
@@ -20,11 +21,14 @@ public class Chef extends AbstractNegotiationParty {
 
     private Bid lastReceivedOffer; // offer on the table
     private Bid myLastOffer;
+    private AgentID lastAgent;
+
+    private HashMap<AgentID, Opponent> opponents;
 
     @Override
     public void init(NegotiationInfo info) {
         super.init(info);
-
+        opponents = new HashMap<>();
     }
 
     /**
@@ -53,7 +57,15 @@ public class Chef extends AbstractNegotiationParty {
 
             return new Accept(this.getPartyId(), lastReceivedOffer);
         } else {
-            myLastOffer = generateBitWithMinUtility(targetUtility);
+            Bid[] bids = generateNBids(10, targetUtility);
+            Bid bid = opponents.get(lastAgent).getBestAcceptableBid(bids);
+
+            if(bid != null) {
+                myLastOffer = bid;
+            } else {
+                myLastOffer = bids[0];
+            }
+            
             return new Offer(this.getPartyId(), myLastOffer);
         }
 
@@ -73,6 +85,15 @@ public class Chef extends AbstractNegotiationParty {
 
             // storing last received offer
             lastReceivedOffer = offer.getBid();
+            lastAgent = sender;
+
+            if(opponents.containsKey(sender)) {
+                opponents.get(sender).addBidToHistory(offer.getBid());
+            } else {
+                Opponent newOpp = new Opponent(sender.getName(), this.getDomain());
+                newOpp.addBidToHistory(offer.getBid());
+                opponents.put(sender, newOpp);
+            }
         }
     }
 
@@ -117,6 +138,16 @@ public class Chef extends AbstractNegotiationParty {
         }
         while(utility < bidUtility);
         return bid;
+    }
+
+    public Bid[] generateNBids(int n, double bidUtility) {
+        Bid[] bids = new Bid[n];
+
+        for(int i = 0; i < n; i++) {
+            bids[i] = generateBitWithMinUtility(bidUtility);
+        }
+
+        return bids;
     }
 
 }
