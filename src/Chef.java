@@ -1,15 +1,17 @@
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import genius.core.AgentID;
 import genius.core.Bid;
 import genius.core.actions.Accept;
 import genius.core.actions.Action;
 import genius.core.actions.Offer;
+import genius.core.issue.ISSUETYPE;
 import genius.core.issue.Issue;
 import genius.core.issue.Value;
 import genius.core.parties.AbstractNegotiationParty;
 import genius.core.parties.NegotiationInfo;
+import genius.core.utility.AbstractUtilitySpace;
+import genius.core.utility.AdditiveUtilitySpace;
 
 /**
  * ExampleAgent returns the bid that maximizes its own utility for half of the negotiation session.
@@ -148,6 +150,19 @@ public class Chef extends AbstractNegotiationParty {
         }
 
         return bids;
+    }
+
+    @Override
+    public AbstractUtilitySpace estimateUtilitySpace(){
+        AbstractUtilitySpace utaEstimation = utaEstimateUtility();
+        return utaEstimation;
+    }
+
+    public AbstractUtilitySpace utaEstimateUtility(){
+        List<Bid> bidRankingList = userModel.getBidRanking().getBidOrder();
+        List<Issue> issueList = bidRankingList.get(0).getIssues();
+
+        return new AdditiveUtilitySpace(); 
     }
 
 }

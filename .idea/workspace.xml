@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54dd3a37-871d-434d-8d99-537532399ee0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Opponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UtilityEstimator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AgentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AgentModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chef.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,47 +17,48 @@
     <session id="405026589">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="8" />
+          <entry key="java" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="8" />
+          <entry key="JAVA" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="613" />
+          <entry key="java" value="1775" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="613" />
+          <entry key="JAVA" value="1775" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Chef.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            <state relative-caret-position="240">
+              <caret line="151" column="20" lean-forward="true" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
               <folding>
-                <element signature="e#2904#2905#0" expanded="true" />
-                <element signature="e#2938#2939#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,12 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AgentModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#76#77#0" expanded="true" />
-                <element signature="e#101#102#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -80,15 +76,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Opponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            <state relative-caret-position="46">
+              <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/genius-9.1.5/boaexample/AC_Next.java">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/UtilityEstimator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -111,6 +114,8 @@
         <option value="$PROJECT_DIR$/src/Opponent.java" />
         <option value="$PROJECT_DIR$/src/AgentModel.java" />
         <option value="$PROJECT_DIR$/src/Chef.java" />
+        <option value="$PROJECT_DIR$/src/utilityEstimation.java" />
+        <option value="$PROJECT_DIR$/src/UtilityEstimator.java" />
       </list>
     </option>
   </component>
@@ -124,7 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -153,10 +157,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543525507263" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544113312079" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -206,7 +211,7 @@
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26979" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27786753" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -241,33 +246,76 @@
     <entry file="file://$PROJECT_DIR$/genius-9.1.2/boaexample/AC_Next.java" />
     <entry file="file://$PROJECT_DIR$/src/OurAgent.java" />
     <entry file="file://$PROJECT_DIR$/genius-9.1.5/boaexample/AC_Next.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Opponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
+        <state relative-caret-position="-878" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AgentModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="75">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UTASTARinJava_v1.6/UTASTAR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7365">
           <folding>
-            <element signature="e#76#77#0" expanded="true" />
-            <element signature="e#101#102#0" expanded="true" />
+            <element signature="e#0#16747#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Chef.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        <state relative-caret-position="240">
+          <caret line="151" column="20" lean-forward="true" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
           <folding>
-            <element signature="e#2904#2905#0" expanded="true" />
-            <element signature="e#2938#2939#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UTASTARinJava_v1.6/MulticriteriaTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5640">
+          <caret line="42" selection-start-line="42" selection-end-line="42" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#16162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/util/function/ToDoubleFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilityEstimation.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Opponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/src.zip!/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UtilityEstimator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
