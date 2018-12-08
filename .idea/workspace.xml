@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54dd3a37-871d-434d-8d99-537532399ee0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Chef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CalcNash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SingularBid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,35 +31,71 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="16" />
+          <entry key="java" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="16" />
+          <entry key="JAVA" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2011" />
+          <entry key="java" value="2466" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2011" />
+          <entry key="JAVA" value="2466" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Chef.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="2400">
               <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/CalcNash.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2158#2171#0" expanded="true" />
+                <element signature="e#5001#5002#0" expanded="true" />
+                <element signature="e#5042#5043#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SingularBid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#767#768#0" expanded="true" />
+                <element signature="e#794#795#0" expanded="true" />
+                <element signature="e#818#819#0" expanded="true" />
+                <element signature="e#850#851#0" expanded="true" />
+                <element signature="e#878#879#0" expanded="true" />
+                <element signature="e#913#914#0" expanded="true" />
+                <element signature="e#944#945#0" expanded="true" />
+                <element signature="e#991#992#0" expanded="true" />
+                <element signature="e#1030#1031#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,7 +113,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Opponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-283">
+            <state relative-caret-position="842">
               <caret line="108" selection-start-line="108" selection-end-line="108" />
             </state>
           </provider>
@@ -112,6 +150,8 @@
         <option value="$PROJECT_DIR$/src/utilityEstimation.java" />
         <option value="$PROJECT_DIR$/src/UtilityEstimator.java" />
         <option value="$PROJECT_DIR$/src/Chef.java" />
+        <option value="$PROJECT_DIR$/src/SingularBid.java" />
+        <option value="$PROJECT_DIR$/src/CalcNash.java" />
       </list>
     </option>
   </component>
@@ -263,13 +303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Opponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-283">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AgentModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -286,10 +319,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Chef.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="2400">
           <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SingularBid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#767#768#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#878#879#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
+            <element signature="e#944#945#0" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+            <element signature="e#1030#1031#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Opponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="842">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalcNash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2158#2171#0" expanded="true" />
+            <element signature="e#5001#5002#0" expanded="true" />
+            <element signature="e#5042#5043#0" expanded="true" />
           </folding>
         </state>
       </provider>
