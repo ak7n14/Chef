@@ -20,7 +20,7 @@ public class UtilityEstimator extends AdditiveUtilitySpaceFactory {
         valsOfIssues = new HashMap<>();
     }
 
-    public void populateValsIssues(BidRanking bidsRankingList){
+    public void estimateUtility(BidRanking bidsRankingList){
 
         int p=0;
         for(Bid bid : bidsRankingList.getBidOrder()) {
