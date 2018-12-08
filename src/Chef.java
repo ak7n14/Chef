@@ -33,6 +33,7 @@ public class Chef extends AbstractNegotiationParty {
     public void init(NegotiationInfo info) {
         super.init(info);
         opponents = new HashMap<>();
+        utilitySpace = estimateUtilitySpace();
     }
 
     /**
@@ -50,12 +51,13 @@ public class Chef extends AbstractNegotiationParty {
         // The time is normalized, so agents need not be
         // concerned with the actual internal clock.
 
-        double concessionThreshold = (this.utilitySpace.getUtility(this.getMaxUtilityBid()) +
-                this.utilitySpace.getUtility(this.getMinUtilityBid())) / 2;
 
         double maxUtility = this.utilitySpace.getUtility(this.getMaxUtilityBid());
+        double minUtility = this.utilitySpace.getUtility(this.getMinUtilityBid());
 
-        double targetUtility = maxUtility - (maxUtility - concessionThreshold) * time;
+        double targetUtility = maxUtility - getDiscount(time, 0.1, 0.1) * (maxUtility - minUtility);
+
+        System.out.println(targetUtility);
 
         if(lastReceivedOffer != null && myLastOffer != null && this.utilitySpace.getUtility(lastReceivedOffer) >= targetUtility) {
 
@@ -69,7 +71,7 @@ public class Chef extends AbstractNegotiationParty {
             } else {
                 myLastOffer = bids[0];
             }
-            
+
             return new Offer(this.getPartyId(), myLastOffer);
         }
 
@@ -163,5 +165,14 @@ public class Chef extends AbstractNegotiationParty {
         return est.getUtilitySpace();
     }
 
+    private static double getDiscount(double t, double k, double beta) {
+        return k + (1-k) * Math.pow(t, (1/beta));
+    }
+
+    private AbstractUtilitySpace getEstimategUtility() {
+        UtilityEstimator estimator = new UtilityEstimator(this.getDomain());
+        estimator.estimateUsingBidRanks(userModel.getBidRanking());
+        return estimator.getUtilitySpace();
+    }
 
 }

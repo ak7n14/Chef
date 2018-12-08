@@ -16,9 +16,10 @@ public class Opponent {
     private String id;
     private ArrayList<Bid> history;
     private ArrayList<Bid> acceptedBids;
-    private HashMap<Issue, HashMap<Value, Integer>> frequencyTable;
-    private HashMap<Issue, HashMap<Value, Double>> estimatedValue;
-    private HashMap<Issue, Double> estimatedWeights;
+    private HashMap<Integer, HashMap<Value, Integer>> frequencyTable;
+    private HashMap<Integer, HashMap<Value, Double>> estimatedValue;
+    private HashMap<Integer, Double> estimatedWeights;
+    private HashMap<Integer, Issue> issueList;
 
 
     public Opponent(String id, Domain domain){
@@ -28,6 +29,7 @@ public class Opponent {
         acceptedBids = new ArrayList<>();
         estimatedValue = new HashMap<>();
         estimatedWeights = new HashMap<>();
+        issueList = new HashMap<>();
     }
 
 
@@ -35,17 +37,15 @@ public class Opponent {
     public void addBidToHistory(Bid bid){
         history.add(bid);
         for(Issue i : bid.getIssues()) {
-            Value v = bid.getValue(i.getNumber());
-            if (frequencyTable.keySet().contains(i)) {
-                if(frequencyTable.get(i).keySet().contains(v)) {
-                    frequencyTable.get(i).put(v, frequencyTable.get(i).get(v) + 1);
-                } else {
-                    frequencyTable.get(i).put(v, 1);
-                }
-            } else {
-                frequencyTable.put(i, new HashMap<>());
-                frequencyTable.get(i).put(v, 1);
-            }
+            Integer id = i.getNumber();
+            issueList.putIfAbsent(id, i);
+            Value v = bid.getValue(id);
+
+            frequencyTable.putIfAbsent(id, new HashMap<>());
+
+            frequencyTable.get(id).putIfAbsent(v, 1);
+
+            frequencyTable.get(id).put(v, frequencyTable.get(id).get(v) + 1);
         }
 
         updateModel();
@@ -64,11 +64,13 @@ public class Opponent {
             double value = 0;
             double k;
 
-            if(estimatedWeights.containsKey(i)){
+            Integer id = i.getNumber();
+
+            if(estimatedWeights.containsKey(id)){
                 k = ((IssueDiscrete) i).getNumberOfValues();
-                weight = estimatedWeights.get(i);
-                if(estimatedValue.get(i).containsKey(bid.getValue(i.getNumber()))) {
-                    value = estimatedValue.get(i).get(bid.getValue(i.getNumber()));
+                weight = estimatedWeights.get(id);
+                if(estimatedValue.get(id).containsKey(bid.getValue(id))) {
+                    value = estimatedValue.get(id).get(bid.getValue(id));
                 } else {
                     value = 1 / k;
                 }
@@ -83,12 +85,14 @@ public class Opponent {
     }
 
 
-    public void updateEstimatedValue(){
-        for(Issue i : frequencyTable.keySet()) {
+    private void updateEstimatedValue(){
+        for(Integer i : frequencyTable.keySet()) {
             HashMap<Value, Integer> sortedValues = sortValues(frequencyTable.get(i));
             HashMap<Value, Double> tempValueMap = new HashMap<>();
             int count = 0;
-            double k = ((IssueDiscrete) i).getNumberOfValues();
+            double k = ((IssueDiscrete) issueList.get(i)).getNumberOfValues();
+
+
             for(Value v : sortedValues.keySet()) {
                 tempValueMap.put(v, (sortedValues.size() - count) / k);
                 count++;
@@ -97,8 +101,8 @@ public class Opponent {
         }
     }
 
-    public void updateEstimatedWeights(){
-        for(Issue i : frequencyTable.keySet()) {
+    private void updateEstimatedWeights(){
+        for(Integer i : frequencyTable.keySet()) {
             double weight = 0;
             for(Integer val : frequencyTable.get(i).values()) {
                 weight += (val*val) / (double) (history.size() * history.size());
@@ -117,19 +121,19 @@ public class Opponent {
             total += weight;
         }
 
-        for(Issue i : estimatedWeights.keySet()) {
+        for(Integer i : estimatedWeights.keySet()) {
             estimatedWeights.put(i, estimatedWeights.get(i) / total);
         }
     }
 
-    public void updateModel() {
+    private void updateModel() {
         updateEstimatedValue();
         updateEstimatedWeights();
     }
 
     public Bid getBestAcceptableBid(Bid[] bids) {
         //REPLACE
-        double threshold = 0.5;
+        double threshold = 0.75;
 
         Bid best = null;
         double bestUtility = Double.MAX_VALUE;
