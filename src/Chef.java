@@ -12,6 +12,7 @@ import genius.core.issue.Value;
 import genius.core.parties.AbstractNegotiationParty;
 import genius.core.parties.NegotiationInfo;
 import genius.core.uncertainty.BidRanking;
+import genius.core.uncertainty.ExperimentalUserModel;
 import genius.core.utility.AbstractUtilitySpace;
 import genius.core.utility.AdditiveUtilitySpace;
 
@@ -64,7 +65,9 @@ public class Chef extends AbstractNegotiationParty {
             return new Accept(this.getPartyId(), lastReceivedOffer);
         } else {
             Bid[] bids = generateNBids(10, targetUtility);
-            Bid bid = opponents.get(lastAgent).getBestAcceptableBid(bids);
+            Bid bid = null;
+            if(lastAgent != null)
+                bid = opponents.get(lastAgent).getBestAcceptableBid(bids);
 
             if(bid != null) {
                 myLastOffer = bid;
