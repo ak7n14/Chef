@@ -72,7 +72,7 @@ public class Chef extends AbstractNegotiationParty {
             if(bid != null) {
                 myLastOffer = bid;
             } else {
-                myLastOffer = bids[0];
+                myLastOffer = getMaxUtilityBid();
             }
 
             return new Offer(this.getPartyId(), myLastOffer);
