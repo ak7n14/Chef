@@ -1,16 +1,10 @@
 import java.util.*;
 
-import genius.core.AgentID;
 import genius.core.Bid;
 import genius.core.Domain;
-import genius.core.actions.Accept;
-import genius.core.actions.Action;
-import genius.core.actions.Offer;
 import genius.core.issue.Issue;
 import genius.core.issue.IssueDiscrete;
 import genius.core.issue.Value;
-import genius.core.parties.AbstractNegotiationParty;
-import genius.core.parties.NegotiationInfo;
 
 public class Opponent {
     private String id;
@@ -133,7 +127,7 @@ public class Opponent {
 
     public Bid getBestAcceptableBid(Bid[] bids) {
         //REPLACE
-        double threshold = 0.75;
+        double threshold = 0.5;
 
         Bid best = null;
         double bestUtility = Double.MAX_VALUE;

@@ -6,22 +6,13 @@ import genius.core.Domain;
 import genius.core.actions.Accept;
 import genius.core.actions.Action;
 import genius.core.actions.Offer;
-import genius.core.issue.ISSUETYPE;
-import genius.core.issue.Issue;
-import genius.core.issue.Value;
 import genius.core.parties.AbstractNegotiationParty;
 import genius.core.parties.NegotiationInfo;
 import genius.core.uncertainty.BidRanking;
-import genius.core.uncertainty.ExperimentalUserModel;
 import genius.core.utility.AbstractUtilitySpace;
-import genius.core.utility.AdditiveUtilitySpace;
 
-/**
- * ExampleAgent returns the bid that maximizes its own utility for half of the negotiation session.
- * In the second half, it offers a random bid. It only accepts the bid on the table in this phase,
- * if the utility of the bid is higher than Example Agent's last bid.
- */
-public class Chef extends AbstractNegotiationParty {
+
+public class Agent28 extends AbstractNegotiationParty {
     private final String description = "Chef Agent";
 
     private Bid lastReceivedOffer; // offer on the table
@@ -56,9 +47,12 @@ public class Chef extends AbstractNegotiationParty {
         double maxUtility = this.utilitySpace.getUtility(this.getMaxUtilityBid());
         double minUtility = this.utilitySpace.getUtility(this.getMinUtilityBid());
 
-        double targetUtility = maxUtility - getDiscount(time, 0.1, 0.1) * (maxUtility - minUtility);
+        double targetUtility = maxUtility - getDiscount(time, 0.1, 0.3) * (maxUtility - minUtility);
 
-        System.out.println(targetUtility);
+
+
+        //System.out.println(targetUtility);
+        System.out.println(this.utilitySpace.getUtility(getMaxUtilityBid()));
 
         if(lastReceivedOffer != null && myLastOffer != null && this.utilitySpace.getUtility(lastReceivedOffer) >= targetUtility) {
 
@@ -69,11 +63,19 @@ public class Chef extends AbstractNegotiationParty {
             if(lastAgent != null)
                 bid = opponents.get(lastAgent).getBestAcceptableBid(bids);
 
-            if(bid != null) {
+
+            if (bid != null) {
+                System.out.println("Offering bid that opponent should accept");
                 myLastOffer = bid;
             } else {
-                myLastOffer = getMaxUtilityBid();
+                myLastOffer = bids[0];
             }
+
+
+            /*System.out.println("Predicted Utility"+this.utilitySpace.getUtility(myLastOffer));
+            ExperimentalUserModel e = (ExperimentalUserModel) userModel;
+            UncertainAdditiveUtilitySpace realUSpace = e.getRealUtilitySpace();
+            System.out.println("Actual Utility"+realUSpace.getUtility(myLastOffer));*/
 
             return new Offer(this.getPartyId(), myLastOffer);
         }
@@ -103,6 +105,8 @@ public class Chef extends AbstractNegotiationParty {
                 newOpp.addBidToHistory(offer.getBid());
                 opponents.put(sender, newOpp);
             }
+
+
         }
     }
 
@@ -172,10 +176,28 @@ public class Chef extends AbstractNegotiationParty {
         return k + (1-k) * Math.pow(t, (1/beta));
     }
 
-    private AbstractUtilitySpace getEstimategUtility() {
-        UtilityEstimator estimator = new UtilityEstimator(this.getDomain());
-        estimator.estimateUsingBidRanks(userModel.getBidRanking());
-        return estimator.getUtilitySpace();
+    private Bid getBidWithMostProduct(Bid[] bids) {
+        double max = Double.MIN_VALUE;
+        Bid maxBid = null;
+
+        for(Bid bid : bids) {
+            double product = 0;
+
+            product = this.utilitySpace.getUtility(bid);
+
+            for(Opponent opp : opponents.values()) {
+                product *= opp.getEstimatedUtility(bid);
+            }
+
+            if(product > max) {
+                max = product;
+                maxBid = bid;
+            }
+        }
+
+        return maxBid;
     }
+
+
 
 }

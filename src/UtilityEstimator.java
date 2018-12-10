@@ -1,7 +1,6 @@
 import genius.core.Bid;
 import genius.core.Domain;
 import genius.core.issue.Issue;
-import genius.core.issue.Value;
 import genius.core.issue.ValueDiscrete;
 import genius.core.uncertainty.AdditiveUtilitySpaceFactory;
 import genius.core.uncertainty.BidRanking;
@@ -12,64 +11,79 @@ import java.util.List;
 
 public class UtilityEstimator extends AdditiveUtilitySpaceFactory {
 
-    private Domain domain;
-    HashMap<Issue, HashMap<ValueDiscrete, List<Integer>>> valsOfIssues;
+    private HashMap<Issue, HashMap<ValueDiscrete, List<Integer>>> valsOfIssues;
     public UtilityEstimator(Domain d) {
         super(d);
-        domain = d;
         valsOfIssues = new HashMap<>();
     }
 
-    public void estimateUtility(BidRanking bidsRankingList){
+    private void populateList(BidRanking bids) {
+        int position = 1;
 
-        int p=0;
-        for(Bid bid : bidsRankingList.getBidOrder()) {
-
-            p+=1;
-            List<Issue> issueList = bid.getIssues();
-            for(Issue issue:issueList){
-                int issueNumber = issue.getNumber();
-                ValueDiscrete val = (ValueDiscrete) bid.getValue(issueNumber);
-                HashMap<ValueDiscrete, List<Integer>> valuePos = valsOfIssues.computeIfAbsent(issue, k -> new HashMap<>());
-                List<Integer> positionList = valuePos.computeIfAbsent(val, k -> new ArrayList<>());
-                positionList.add(p);
-            }
-
-            HashMap<Issue, HashMap<ValueDiscrete, Double>> means = new HashMap<>();
-            HashMap<Issue, List<Double>> stddeviations = new HashMap<>();
-            for(Issue issue: valsOfIssues.keySet()){
-                HashMap<ValueDiscrete, List<Integer>> valuePos = valsOfIssues.get(issue);
-                ArrayList<Double> stddevlist = new ArrayList<>();
-                for(ValueDiscrete value : valuePos.keySet()){
-                    List<Integer> positions  = valuePos.get(value);
-                    double mean = positions.stream().mapToInt(e -> e).average().orElseThrow(() -> new RuntimeException("Value exists with no positions for it"));
-                    double stddev = 0d;
-                    for(int v : positions){
-                        stddev += (v - mean) * (v - mean);
-                    }
-                    stddev /= (double) positions.size();
-
-
-                    means.computeIfAbsent(issue, k -> new HashMap<>()).put(value, mean);
-
-                    stddevlist.add(stddev);
-                    this.setUtility(issue, value, mean);
-
+        for(Bid bid : bids.getBidOrder()) {
+            for(Issue issue : bid.getIssues()) {
+                int id = issue.getNumber();
+                ValueDiscrete value = (ValueDiscrete) bid.getValue(id);
+                if(!valsOfIssues.containsKey(issue)) {
+                    valsOfIssues.put(issue, new HashMap<>());
                 }
-                Double maxStddev = stddevlist.stream().mapToDouble(e -> e).max().getAsDouble();
-                getUtilitySpace().setWeight(issue, 1d / maxStddev);
+
+                if(!valsOfIssues.get(issue).containsKey(value)) {
+                    valsOfIssues.get(issue).put(value, new ArrayList<>());
+                }
+
+                valsOfIssues.get(issue).get(value).add(position);
             }
-            this.normalizeWeightsByMaxValues();
 
+            HashMap<Issue, HashMap<ValueDiscrete, Double>> mean = new HashMap<>();
+
+            position++;
         }
-
     }
 
+    public void estimateUtility(BidRanking bidRanking) {
+        populateList(bidRanking);
 
+        for(Issue issue : valsOfIssues.keySet()) {
+            ArrayList<Double> stddevList = new ArrayList<>();
+            for(ValueDiscrete value : valsOfIssues.get(issue).keySet()) {
+                double mean = getMean(valsOfIssues.get(issue).get(value));
+                double stddev = 0;
 
+                for(int i : valsOfIssues.get(issue).get(value)) {
+                    stddev += Math.pow((mean - i), 2);
+                }
 
+                stddev = stddev / (double) valsOfIssues.get(issue).get(value).size();
 
+                stddevList.add(stddev);
+                this.setUtility(issue, value, mean);
+            }
+            double maxDev = getMax(stddevList);
+            getUtilitySpace().setWeight(issue, 1 / maxDev);
+        }
+        this.normalizeWeightsByMaxValues();
+    }
 
+    private double getMean(List<Integer> values) {
+        double total = 0;
+        for(Integer i : values) {
+            total += i;
+        }
+
+        return total / (double) values.size();
+    }
+
+    private double getMax(List<Double> list) {
+        double max = Double.MIN_VALUE;
+
+        for(double d : list) {
+            if(d > max)
+                max = d;
+        }
+
+        return max;
+    }
 }
 
 
