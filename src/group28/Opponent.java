@@ -1,10 +1,12 @@
-import java.util.*;
+package group28;
 
 import genius.core.Bid;
 import genius.core.Domain;
 import genius.core.issue.Issue;
 import genius.core.issue.IssueDiscrete;
 import genius.core.issue.Value;
+
+import java.util.*;
 
 public class Opponent {
     private String id;
